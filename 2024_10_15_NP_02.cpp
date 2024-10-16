@@ -31,6 +31,10 @@ int main(int argc, char* argv[]) {
     cout << left << setw(40) << "Nome do Arquivo" << "Tamanho (bytes)" << endl;
     cout << string(60, '-') << endl;
 
+    /// Iterates through the files in the current directory and prints the filename and file size (in bytes) for each file that matches the provided file extension.
+    /// 
+    /// The file extension is provided as a command line argument. If the extension does not start with a period, it is prepended to the extension.
+    /// For each matching file, the filename is left-aligned in a 40-character wide column, and the file size is right-aligned in a 15-character wide column.
     for (const auto& entry : fs::directory_iterator(".")) {
         if (entry.is_regular_file() && entry.path().extension() == extensao) {
             uintmax_t fileSize = fs::file_size(entry.path());
