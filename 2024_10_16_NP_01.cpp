@@ -49,6 +49,7 @@ int main() {
     mudaLinha();
     cout << "+2 no ponteiro" << endl;
     cout << *(ptr + 2) << endl;
- 
+
+    mudaLinha();
     return 0;
 }
