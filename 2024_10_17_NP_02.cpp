@@ -59,7 +59,6 @@ int main() {
             break;
         case 4:
             cout << "You chose option 4" << endl;
-            
             break;
         default:
             cout << "Invalid choice" << endl;
