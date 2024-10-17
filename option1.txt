@@ -1,0 +1,11 @@
+    int number = 42;
+    int *pointer = &number;
+
+    cout << "The value of number is: " << number << endl;
+    cout << "The address of number is: " << &number << endl;
+    cout << "The value of pointer is: " << pointer << endl;
+    cout << "The value pointer is pointing to is: " << *pointer << endl;
+
+    *pointer = 100;
+    cout << "After changing the value through the pointer:" << endl;
+    cout << "The value of number is now: " << number << endl;

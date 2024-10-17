@@ -1,0 +1,15 @@
+    int value = 42;
+    int *ptr = &value;
+    int **ptrToPtr = &ptr;
+
+    cout << "Value: " << value << endl;
+    cout << "Address of value: " << &value << endl;
+    cout << "Pointer (ptr) points to address: " << ptr << endl;
+    cout << "Value at *ptr: " << *ptr << endl;
+    cout << "Address of ptr: " << &ptr << endl;
+    cout << "Pointer to pointer (ptrToPtr) points to address: " << ptrToPtr << endl;
+    cout << "Value at **ptrToPtr: " << **ptrToPtr << endl;
+
+    **ptrToPtr = 100;
+    cout << "\nAfter changing value through ptrToPtr:" << endl;
+    cout << "New value: " << value << endl;
