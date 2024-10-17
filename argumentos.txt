@@ -1,4 +1,0 @@
-Argumento 0: D:\GitHub\ProgC_CPP_NM\2024_10_08_NP_05.exe
-Argumento 1: 1coisa
-Argumento 2: outracoisa
-Argumento 3: mais coisas
