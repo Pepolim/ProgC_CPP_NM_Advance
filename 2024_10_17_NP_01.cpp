@@ -2,6 +2,18 @@
 
 using namespace std;
 
+
+void mudaLinha() {
+    cout << endl;
+}
+
+void dataCriadoPor(const string& nome) {
+    time_t dataHora;
+    time(&dataHora);
+
+    mudaLinha();
+    cout << "Este programa foi escrito por " << nome << ", em " << ctime(&dataHora);
+}
 /**
  * Este conjunto de código mostras definições e utilização do conceito de ponteiros em C/C++.
  * 
@@ -23,6 +35,8 @@ using namespace std;
  */
 int main() {
     
+    dataCriadoPor("Nuno Pepolim");
+    mudaLinha();
     /** 
     * O operador '&' é unário e significa 'endereço de...'. Por exemplo, &codPostal quer dizer 'endereço da variável codPostal'.
     * O código abaixo ilustra um exemplo para uma variável do tipo inteiro.
@@ -32,8 +46,8 @@ int main() {
         cout << "--- Exemplo 01 --->" << endl;
         int numero = 10;
         cout << numero  << endl;
-        cout << &numero << endl << endl;
-
+        cout << &numero << endl;
+        mudaLinha();
 /**
  * Vamos considerar que dispomos de um tipo de dados para representar endereços.
  * Chamamos a este tipo "tipo apontador" (Pointer Type).
@@ -54,7 +68,8 @@ int main() {
         ptr_ex02 = &var_ex02; 
         cout << "Mostra o valor atual da variável 'var_ex02': " << var_ex02 << endl;
         cout << "Mostra o endereço de memória onde se encontra a variável 'var_ex02': " << ptr_ex02 << endl;
-        cout << "Mostra o valor da variável 'var_ex02', apontada pelo ponteiro 'ptr_ex02': " << *ptr_ex02 << endl << endl;
+        cout << "Mostra o valor da variável 'var_ex02', apontada pelo ponteiro 'ptr_ex02': " << *ptr_ex02 << endl;
+        mudaLinha();
 
     /** 
     * [Exemplo 03]
@@ -69,8 +84,8 @@ int main() {
          * Estamos a dizer "atribui o caráter '+' à posição de memória apontada por...".
          */
         *ptr_ex03 = '+'; 
-        cout << "Resultado do acesso ao endereço de memória da variável 'letra_ex03': " << letra_ex03 << endl << endl; 
-        
+        cout << "Resultado do acesso ao endereço de memória da variável 'letra_ex03': " << letra_ex03 << endl; 
+        mudaLinha();
 /**
  * Existem alguns erros muito comuns quando se usam ponteiros:
  * 1) não devemos (não podemos!) atribuir um endereço a uma variável que não seja do tipo ponteiro:
@@ -86,7 +101,7 @@ int main() {
         //int k, *p;
 		//*p = 10;
         // cout << *p  << endl; // Atenção ao erro de 'execução' (runtime).
-
+        // mudaLinha();
     /** 
     * [Exemplo 05]
     */ 
@@ -99,7 +114,8 @@ int main() {
         int *ptr = numeros; // Definir e inicializar um 'ponteiro' para o 'array' de números inteiros.
         cout << "Endereço de memória onde está o primeiro elemento do 'array': " << ptr << endl;
         cout << "Valor do primeiro elemento do 'array', usando o índice (index): " << numeros[0] << endl;
-        cout << "Valor do primeiro elemento do 'array', usando o endereço (pointer): " << *ptr << endl << endl;
+        cout << "Valor do primeiro elemento do 'array', usando o endereço (pointer): " << *ptr << endl;
+        mudaLinha();
         // Nota: se executarmos o código várias vezes verificamos que os endereços de memória são diferentes em cada execução.
       
     /**
@@ -130,7 +146,7 @@ int main() {
      *  Também nestes casos o ponteiro deve 'apontar' para um tipo de dados completo.
      */
         ptr += 3; // Incrementar o ponteiro para avançar três posições (e não 3 vezes, como nas somas tradicionais).
-        cout << "Valor do elemento do 'array', apontado pelo endereço atual: " << *ptr << endl << endl;
+        cout << "Valor do elemento do 'array', apontado pelo endereço atual: " << *ptr << endl;
 
     /** Para finalizar esta introdução aos ponteiros, devemos sempre ter em atenção as operações de incremento e/ou
      *  decremento que efetuamos. 
@@ -157,5 +173,5 @@ Desvantagens dos ponteiros:
     5. Incompatibilidade entre plataformas: o tamanho dos ponteiros pode variar entre diferentes arquiteturas, o que pode causar problemas de portabilidade;
     6. Overhead de gestão: a gestão manual da memória com ponteiros requer mais atenção e cuidado por parte do programador.
 */
-
+    mudaLinha();
 return 0; } // Bug free
