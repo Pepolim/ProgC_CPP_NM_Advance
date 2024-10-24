@@ -60,6 +60,8 @@
     "stdio.h": "c",
     "ostream": "cpp",
     "iostream": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "string": "cpp",
+    "*.tcc": "cpp"
   }
 }
