@@ -12,9 +12,8 @@ void mudaLinha() {
 void dataCriadoPor(const string& nome) {
     time_t dataHora;
     time(&dataHora);
-
-    mudaLinha();
-    cout << "Este programa foi escrito por " << nome << ", em " << ctime(&dataHora);
+    
+    cout << "-Este programa foi escrito por " << nome << ", em " << ctime(&dataHora) << endl;
 }
 
 // Definir a classe
@@ -33,20 +32,15 @@ public:
         cout << "Classificação: " << classificacao << endl;
 
         if (classificacao > 12 && idade >= 20)
-            cout << "Pode inscrever-se" << endl;
-        
-        else{
-            cout << "Não se pode inscrever" << endl;
-            
-            
-        }
-
+            cout << "---Pode inscrever-se---" << endl;
+        else
+            cout << "---Não se pode inscrever---" << endl;
     }
 }; // fim da classe, com o terminador ";"
 
 int main() {
-    dataCriadoPor("Nuno Pepolim");
     mudaLinha();
+    dataCriadoPor("Nuno Pepolim");
 
     //instanciação do objeto
     Pessoa eu;
