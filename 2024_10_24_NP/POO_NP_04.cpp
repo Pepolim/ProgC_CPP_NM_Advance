@@ -27,17 +27,26 @@ public:
     
     //metodo onde diz se pode ou não se inscrever
     void podeFrequentar(){
+        //printar os atributos
+        cout << "Nome: " << nome << endl;
+        cout << "Idade: " << idade << endl;
+        cout << "Classificação: " << classificacao << endl;
+
         if (classificacao > 12 && idade >= 20)
             cout << "Pode inscrever-se" << endl;
         
-        else
+        else{
             cout << "Não se pode inscrever" << endl;
+            
+            
+        }
 
     }
 }; // fim da classe, com o terminador ";"
 
 int main() {
     dataCriadoPor("Nuno Pepolim");
+    mudaLinha();
 
     //instanciação do objeto
     Pessoa eu;
