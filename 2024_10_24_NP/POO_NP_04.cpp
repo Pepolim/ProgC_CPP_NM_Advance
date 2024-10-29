@@ -3,10 +3,12 @@
 
 using namespace std;
 
+// Funçao para mudar de linha
 void mudaLinha() {
     cout << endl;
 }
 
+// Funçao para mostrar a data e hora de criaçao do programa
 void dataCriadoPor(const string& nome) {
     time_t dataHora;
     time(&dataHora);
@@ -18,10 +20,12 @@ void dataCriadoPor(const string& nome) {
 // Definir a classe
 class Pessoa {
 public:
+    //inicializaçao dos atributos
     string nome;
     int idade;
     float classificacao;
     
+    //metodo onde diz se pode ou não se inscrever
     void podeFrequentar(){
         if (classificacao > 12 && idade >= 20)
             cout << "Pode inscrever-se" << endl;
@@ -35,9 +39,11 @@ public:
 int main() {
     dataCriadoPor("Nuno Pepolim");
 
+    //instanciação do objeto
     Pessoa eu;
 
     cout << "Nome: ";
+    //receber a linha inteira
     getline(cin, eu.nome);
 
     cout << "Idade: ";
