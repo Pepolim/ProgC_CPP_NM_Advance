@@ -124,6 +124,8 @@ public:
       if (numeroDVDs >= capacidade)
       {
          // Expand array if needed
+         /// Dynamically allocates a new array of DVD pointers with twice the current capacity.
+         /// This is used to expand the array when the number of DVDs exceeds the current capacity.
          DVD **temp = new DVD *[capacidade * 2];
          for (int i = 0; i < numeroDVDs; i++)
          {
@@ -143,8 +145,8 @@ public:
       {
          cout << "\nDVD #" << (i + 1) << ":" << endl;
          dvds[i]->recibo();
-         //dvds[i]->adquirir();
-         //dvds[i]->devolver();
+         // dvds[i]->adquirir();
+         // dvds[i]->devolver();
       }
    }
 };
