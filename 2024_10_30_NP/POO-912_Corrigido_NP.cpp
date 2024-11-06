@@ -11,7 +11,6 @@ class DVD
 protected:
    string titulo;
    float preco;
-
 public:
    DVD(string t, float p)
    {
@@ -27,7 +26,11 @@ public:
    {
       cout << "Não é possivel devolver o DVD por este meio" << endl;
    }
-   void recibo()
+   void getTitulo()
+   {
+      cout << "Titulo: " << titulo << endl;
+   }
+   virtual void recibo()
    {
       cout << "Titulo: " << titulo << endl;
       cout << "Preço: " << preco << endl;
@@ -36,6 +39,8 @@ public:
 
 class DVDdeVender : public DVD
 {
+   string tipo = "Venda";
+
 public:
    DVDdeVender(string t, float p) : DVD(t, p)
    {
@@ -50,6 +55,12 @@ public:
    {
       cout << "Nao é possivel devolver DVDs comprados" << endl;
    }
+   void recibo()
+   {
+      cout << "Tipo: " << tipo << endl;
+      cout << "Titulo: " << titulo << endl;
+      cout << "Preço: " << preco << endl;
+   }
 };
 
 class DVDdeAlugar : public DVD
@@ -59,6 +70,7 @@ private:
    time_t dataDePedido;
    time_t dataDevolucao;
    // double diferencaSegundos;
+   string tipo = "Aluguer";
 
 public:
    DVDdeAlugar(string t, float p) : DVD(t, p)
@@ -91,6 +103,12 @@ public:
          cout << "DVD devolvido com sucesso" << endl;
       else
          cout << "Ultrapassou o tempo de devoluçao. Tem que pagar mais 20'%' do valor pretendido" << endl;
+   }
+   void recibo()
+   {
+      cout << "Tipo: " << tipo << endl;
+      cout << "Titulo: " << titulo << endl;
+      cout << "Preço: " << preco << endl;
    }
 };
 
@@ -137,6 +155,21 @@ public:
       }
       dvds[numeroDVDs++] = d;
    }
+   void colecao()
+   {
+      cout << "\n=== DVDs na Coleção ===" << endl;
+      for (int i = 0; i < numeroDVDs; i++)
+      {
+         cout << "\nDVD #" << (i + 1) << ":" << endl;
+         dvds[i]->getTitulo();
+      }
+   }
+
+   void consultar(int indice)
+   {
+      cout << "\n=== Relatório do DVDs na Coleção ===" << endl;
+      dvds[indice]->recibo();
+   }
 
    void relatorio()
    {
@@ -144,6 +177,7 @@ public:
       for (int i = 0; i < numeroDVDs; i++)
       {
          cout << "\nDVD #" << (i + 1) << ":" << endl;
+         //dvds[i]->getTitulo();
          dvds[i]->recibo();
          // dvds[i]->adquirir();
          // dvds[i]->devolver();
@@ -168,14 +202,55 @@ int main()
    tres.devolver();
    tres.recibo();
    */
+   string titulo;
+   float preco;
+   char tipo;
+   char insercao = 's';
+   int indice;
 
    ColecaoDeDVDs colecao;
 
-   colecao.acrescentarDVD(new DVDdeVender("Matrix", 15.99));
-   colecao.acrescentarDVD(new DVDdeAlugar("Inception", 5.99));
-   colecao.acrescentarDVD(new DVDdeVender("Interstellar", 19.99));
+   while (insercao == 's' || insercao == 'S')
+   {
+      cout << "Deseja inserir um DVD para vender ou alugar? (V/A): ";
+      cin >> tipo;
+      if (tipo == 'V' || tipo == 'v'){
+         cout << "Insira o titulo do DVD: ";
+         cin >> titulo;
+         cout << "Insira o preco do DVD: ";
+         cin >> preco;
+         colecao.acrescentarDVD(new DVDdeVender(titulo, preco));
+      }
+      else if (tipo == 'A' || tipo == 'a'){
+         cout << "Insira o titulo do DVD: ";
+         cin >> titulo;
+         cout << "Insira o preco do DVD: ";
+         cin >> preco;
+         colecao.acrescentarDVD(new DVDdeAlugar(titulo, preco));
+      }
+      else{
+         cout << "Tipo de DVD inválido. Por favor, insira V ou A." << endl;
+      }
+      cout << "Deseja continuar a insercao de DVDs? (S/N): ";
+      cin >> insercao;
+   }
 
-   colecao.relatorio();
+   colecao.colecao();
+   
+   cout << "\nDeseja consultar um Dvd? (S/N): ";
+   cin >> insercao;
+   while (insercao == 's' || insercao == 'S'){
+      cout << "Insira o indice do DVD: ";
+      cin >> indice;
+      colecao.consultar(indice - 1);
+
+      cout << "\nDeseja continuar a consulta? (S/N): ";
+      cin >> insercao;
+   }
+   cout << "\nDeseja ver o relatório da colecao? (S/N): ";
+   cin >> insercao;
+   if (insercao == 'S' || insercao == 's')
+      colecao.relatorio();
 
    return 0;
 }
