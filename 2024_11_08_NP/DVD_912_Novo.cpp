@@ -132,32 +132,31 @@ public:
       }
       delete[] dvds;
    }
-   
+   /*
    void acrescentarDVD(DVD *d)
    {
       if (numeroDVDs >= capacidade)
       {
-         // Expand array if needed
-         /// Dynamically allocates a new array of DVD pointers with twice the current capacity.
-         /// This is used to expand the array when the number of DVDs exceeds the current capacity.
          DVD **temp = new DVD *[capacidade + 1];
          for (int i = 0; i < numeroDVDs; i++)
          {
             temp[i] = dvds[i];
          }
-         /// Deallocates the dynamically allocated array of DVD pointers.
-         /// This is used to clean up the memory used by the ColecaoDeDVDs class when it is destroyed.
          delete[] dvds;
-         /// Assigns the newly allocated array of DVD pointers to the dvds member variable.
-         /// This is used to expand the array when the number of DVDs exceeds the current capacity.
          dvds = temp;
          delete[] temp;
-         /// Doubles the capacity of the array of DVD pointers.
-         /// This is used to expand the array when the number of DVDs exceeds the current capacity.
+
          capacidade += 1;
       }
-      /// Adds the given DVD pointer to the collection of DVDs.
-      /// If the collection's capacity is exceeded, the capacity is doubled to accommodate the new DVD.
+      dvds[numeroDVDs++] = d;
+   }*/
+
+   //MUDEI PARA USAR MALLOC OU REALLOC
+   void acrescentarDVD(DVD *d) {
+      if (numeroDVDs >= capacidade) {
+        capacidade += 1;
+        dvds = (DVD**)realloc(dvds, capacidade * sizeof(DVD*));
+      }
       dvds[numeroDVDs++] = d;
    }
    
