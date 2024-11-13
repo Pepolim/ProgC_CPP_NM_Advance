@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/GitHub/ProgC_CPP_NM/2024_10_15_NP",
-      "program": "d:/GitHub/ProgC_CPP_NM/2024_10_15_NP/build/Debug/outDebug",
+      "cwd": "d:/GitHub/ProgC_CPP_NM/2024_11_13_NP/Lists",
+      "program": "d:/GitHub/ProgC_CPP_NM/2024_11_13_NP/Lists/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
